@@ -11,8 +11,8 @@
   - Control Flow (excluding loops, focusing on if/else)
   - Functions and scope
 
-* Week 1 lab
-  - Review of our first lab work
+* Week 1 assignment
+  - Review of our first assignment
 
 #### Git/Github (continued)
 - Forking
