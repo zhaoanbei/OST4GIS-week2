@@ -53,8 +53,21 @@
       var yourSum = 0;
 
       // Refactor the work above into a few different functions that are reusable to the extent that you can
-      for (var i = 0; i < theArray.length, i++) { /* Do stuff here */ }
+      function f (theArray) {
+        for (var i = 0; i < theArray.length; i++) {
+          var arrayValue = theArray[i];
+          if (typeof arrayValue === 'string') {         // String case
+            yourSum = yourSum + arrayValue.length
+          } else if (typeof arrayValue === 'number') {  // Number case
+            yourSum = yourSum + arrayValue
+          } else {                                      // Otherwise
+            console.log("Not sure how to proceed with value:", arrayValue)
+          }
+        }
 
+      }
+
+      f(theArray)
       /* =====================
 
       End code

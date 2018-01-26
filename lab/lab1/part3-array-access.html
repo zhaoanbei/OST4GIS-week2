@@ -22,17 +22,28 @@
 
     ## Introduction
 
-    Refactor your week 1 homework assignment to leverage some of the Javascript functionality we have been learning about. We will start by improving the way we store data and the amount of times we call the L.marker method.
+    Refactor your week 1 homework assignment to leverage some of the Javascript
+    functionality we have been learning about. We will start by improving the way
+    we store data and the amount of times we call the L.marker method.
 
     ## Task 1: Data Storage
 
-    Let's consider a marker for a single restaurant point location. We could store information about that marker as an array ([element1, element2, element3...]). Your point location array should contain the following three elements in this order: 1. lat, 2. lng, 3. label.
+    Let's consider a marker for a single restaurant point location. We could store
+    information about that marker as an array ([element1, element2, element3...]).
+    Your point location array should contain the following three elements in this
+    order: 1. lat, 2. lng, 3. label.
 
-    Create an array of arrays (an array that contains multiple arrays) to represent every restaurant in your restaurant data. Save this as variable "restaurantData".
+    Create an array of arrays (an array that contains multiple arrays) to represent
+    every restaurant in your restaurant data. Save this as variable "restaurantData".
+    */
 
+/*
     ## Task 2: Process Data
 
     Create a marker for each element in "restaurantData". Your final code should only include "L.marker" one time.
+    */
+
+    /*
 
     ## Task 3: Add Two Additional Markers
 
@@ -58,14 +69,13 @@
     }).addTo(map);
 
     /* =====================
+    */
 
-    Start code
+    let restaurantData = [[39.957401, -75.202379,'a'],[39.958125, -75.209031,'b'],[39.953725, -75.203001,'c'], [39.954819, -75.199922, 'd'], [39.953610, -75.193378, 'e']];
+    for (let i = 0; i<restaurantData.length; i++) {
+      L.marker([restaurantData[i][0],restaurantData[i][1]]).addTo(map)
+    }
 
-    ===================== */
-
-    L.marker([0, 0]).addTo(map);
-    L.marker([0, 0]).addTo(map);
-    L.marker([0, 0]).addTo(map);
 
     /* =====================
 

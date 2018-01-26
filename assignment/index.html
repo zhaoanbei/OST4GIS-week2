@@ -39,13 +39,19 @@
 
        This week's assignment as having two separate parts:
 
-       1. Log a series of arrays to the console that represents the health_centers dataset in array form. For example, [{'first': 1, 'second': 44}, {'first': 2, 'second': 12}] becomes [['first','second'],[1, 44],[2, 12]]
+       1. Log a series of arrays to the console that represents the health_centers
+       dataset in array form. For example, [{'first': 1, 'second': 44}, {'first': 2, 'second': 12}]
+       becomes [['first','second'],[1, 44],[2, 12]]
 
-       2. Put a marker on the map for each health center in the specified lat/lng coordinates with a popup (a simple text dialog) that shows that location's name when its marker is clicked.
+       2. Put a marker on the map for each health center in the specified lat/lng
+       coordinates with a popup (a simple text dialog) that shows that location's name when its marker is clicked.
 
-       EXTRA: Some of these locations offer dental services as well. Can you find some way to give dental locations a different icon? (Here's some relevant documentation: http://leafletjs.com/reference.html#icon)
+       EXTRA: Some of these locations offer dental services as well. Can you find
+       some way to give dental locations a different icon? (Here's some relevant
+       documentation: http://leafletjs.com/reference.html#icon)
 
-       Remember: functions are meant to facilitate code comprehension and reuse. Try to use them to organize your code.
+       Remember: functions are meant to facilitate code comprehension and reuse.
+       Try to use them to organize your code.
       ===================== */
 
 
@@ -55,10 +61,36 @@
 
       ===================== */
 
-      var jsonToCsv = function(json) { console.log(json); };
+      var jsonToCsv = function(json) {
+        var hKey = [];
+        var hValue = [];
+        hKey.push(Object.keys(json[0]));
+        console.log(hKey);
+        for (var i = 0; i < json.length; i++) {
+          var hV = Object.values(json[i]);
+          hValue.push(hV)
+        }
+        hKey.push(hValue);
+        console.log(hKey);
+        return hKey};
 
+      var icon1 = new L.Icon({iconUrl: 'https://github.com/zhaoanbei/OST4GIS-week2/blob/master/th.jpg',
+      iconSize:[30, 30]
+      })
 
+      for (var i = 0; i < healthCenters.length; i++) {
+        if (healthCenters[i].ZIP >= 19140 && healthCenters[i].ZIP <= 19149) {
+          if (healthCenters[i].DENTAL_PHONE !== "N/A") {
+            L.marker([healthCenters[i].LAT,healthCenters[i].LNG], {icon: icon1})
+            .bindPopup(healthCenters[i].NAME).addTo(map)
+          }else {
+            L.marker([healthCenters[i].LAT,healthCenters[i].LNG]).bindPopup(
+              healthCenters[i].NAME).addTo(map)}
+          }
+        }
       var addMarkers = function(map) {};
+
+
 
       /* =====================
 
